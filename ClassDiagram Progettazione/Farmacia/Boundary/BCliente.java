@@ -6,11 +6,9 @@ public class BCliente {
     }
 
     public void registrazione() {
-        // TODO implement here
     }
 
     public void visualizzareListaFarmaciDisponibili() {
-        // TODO implement here
     }
 
 }
