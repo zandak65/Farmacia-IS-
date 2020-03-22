@@ -86,8 +86,6 @@ public class Main {
 		}
 		
 		scan = new Scanner(System.in);
-		System.out.println("Introduci il codice ricetta:");
-		int codiceRicettaMedica = scan.nextInt();
 		ArrayList<Farmaco> acquisti2 = new ArrayList<Farmaco>();
 		ArrayList<Integer> quantitàOrdine2 = new ArrayList<Integer>();
 		int i = 0;
@@ -120,7 +118,14 @@ public class Main {
 		for(int b = 0; b < quantitàOrdine2.size(); b++) {
 			quantitàOrdine[b] = quantitàOrdine2.get(b);
 		}
+		Boolean ricettaInserita = false;
+		int codiceRicettaMedica = 0;
 		for(int c = 0; c<quantitàOrdine.length; c++) {
+			if(acquisti[c].getPrescrivibile() == true && ricettaInserita == false) {
+				System.out.println("Introduci il codice ricetta:");
+				codiceRicettaMedica = scan.nextInt();
+				ricettaInserita = true;
+			}
 			if(quantitàOrdine[c] <= acquisti[c].getQuantitàDisponibili()) {
 				if(c == quantitàOrdine.length - 1) {
 					Ordine ordine = gestoreAcquisti.acquistaFarmaco(codiceRicettaMedica, acquisti, quantitàOrdine);
